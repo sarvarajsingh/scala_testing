@@ -15,6 +15,7 @@ class TC_327 extends FunSuite with CassandraQueries with BeforeAndAfterAll {
   val cassandraConnection = new CassandraConnection().getConnection
   var list_device_summary: ListBuffer[DeviceSummary] = null
   initDataSet()
+  cassandraConnection.close()
 
   def initDataSet(): Unit = {
     this.list_device_summary = new ListBuffer[DeviceSummary]
@@ -40,19 +41,5 @@ class TC_327 extends FunSuite with CassandraQueries with BeforeAndAfterAll {
     // fetch data frm cassandra
 
   }
-
-  //access the service
-
-
-  //verify the results
-
-
-  //cleanup
-
-
-  override def afterAll() {
-    cassandraConnection.close()
-  }
-
 
 }
